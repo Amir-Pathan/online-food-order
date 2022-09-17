@@ -3,6 +3,7 @@ import Home from "./home"
 import CategoryItem from "./categoryItem"
 import Checkout from "./checkout"
 import Address from "./address"
+import Orders from "./orders"
 
 const router = [
     {
@@ -24,6 +25,10 @@ const router = [
     {
         path:'/address',
         component:<Address/>
+    },
+    {
+        path:'/orders',
+        component:<Orders/>
     }
 ]
 
