@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper, Button } from '@mui/material'
 import Services from '../../services/services';
+import { useNavigate } from 'react-router-dom';
 
 export default function ImageCorousel(props)
 {
@@ -10,8 +11,6 @@ export default function ImageCorousel(props)
 
 
     useEffect(()=>{
-
-        console.log('mobile');
         Services.getData('categories').then((res)=>{
             console.log(res);
             setItems(res)
@@ -35,8 +34,12 @@ export default function ImageCorousel(props)
 
 function Item(props)
 {
+    const navigate = useNavigate()
+
+    const toCategory=(id)=>navigate('category/'+id)
+
     return (
-        <Paper>
+        <Paper onClick={()=>toCategory(props.item._id)}>
             <img src={props.item.imgUrl}
             style={{
                 width:'98%',
@@ -54,9 +57,6 @@ function Item(props)
                 Delicious dishes for you on 50% <br/>
                 discount and free delivery
                </div>
-              <Button className="CheckButton">
-    Check it out!
-              </Button>
             </div>
         </Paper>
     )
