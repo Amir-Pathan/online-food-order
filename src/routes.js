@@ -4,6 +4,7 @@ import CategoryItem from "./categoryItem"
 import Checkout from "./checkout"
 import Address from "./address"
 import Orders from "./orders"
+import Wishlist from "./wishlist"
 
 const router = [
     {
@@ -29,6 +30,10 @@ const router = [
     {
         path:'/orders',
         component:<Orders/>
+    },
+    {
+         path:'/wishlist',
+         component:<Wishlist/>  
     }
 ]
 
